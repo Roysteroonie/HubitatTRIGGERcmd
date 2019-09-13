@@ -12,6 +12,8 @@
  *  on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License
  *  for the specific language governing permissions and limitations under the License.
  *
+ *  Updated for Hubitat Elevation (HE) by Royski 13/09/2019
+ *
  */
 
 import java.security.MessageDigest;
@@ -62,16 +64,6 @@ def installed() {
 	logCheck()     
 }
 
-// This works. 
-//def installed() {
-//	log.info "Initialised with settings: ${settings}"
-//
-//	unschedule()
-//	unsubscribe()
-//
-//	setupBulbs()       
-//}
-
 def updated() {
 
 	unschedule()
@@ -93,13 +85,6 @@ private removeChildDevices(delete) {
 		deleteChildDevice(it.device.deviceNetworkId)
 	}
 }
-
-//private removeChildDevices(delete) {
-//	log.debug "Removing {it.deviceNetworkId}"
-//	delete.each {
-//		deleteChildDevice(it.deviceNetworkId)
-//	}
-//}
 
 def uninstallFromChildDevice(childDevice)
 {
